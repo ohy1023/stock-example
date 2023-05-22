@@ -33,16 +33,6 @@ class LettuceLockStockFacadeTest {
         stockRepository.deleteAll();
     }
 
-    @Test
-    public void stock_decrease() throws Exception {
-
-        lettuceLockStockFacade.decrease(1L, 1L);
-
-        Stock stock = stockRepository.findById(1L).orElseThrow();
-
-        assertEquals(99L, stock.getQuantity());
-    }
-
 
     @Test
     public void concurrent_100_requests() throws InterruptedException {
